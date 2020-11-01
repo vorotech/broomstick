@@ -15,7 +15,7 @@ Google Drive duplicated files analyser and cleanup solution with open code
 First, run the client development server:
 
 ```bash
-cd client
+cd ui
 npm run dev
 # or
 yarn dev
