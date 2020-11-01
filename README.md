@@ -2,6 +2,8 @@
 
 Google Drive duplicated files analyser and cleanup solution with open code
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1d7fa8c6-5fa6-4bb7-8cd8-6798c97867b6/deploy-status)](https://app.netlify.com/sites/google-drive-broomstick/deploys)
+
 ## Tech Stack
 
 - [ReactJS](https://reactjs.org/) JavaScript client library for UI
