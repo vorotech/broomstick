@@ -17,6 +17,7 @@ Google Drive duplicated files analyser and cleanup solution with open code
 
 - [Deploying Next.js to Netlify](https://docs.netlify.com/configure-builds/common-configurations/#next-js)
 - [2 Ways to Create Server-Rendered Routes Using Next.js and Netlify](https://www.netlify.com/blog/2020/06/10/2-ways-to-create-server-rendered-routes-using-next.js-and-netlify/)
+- [Build serverless functions with Go](https://docs.netlify.com/functions/build-with-go/#synchronous-function-format)
 
 ## Build
 
