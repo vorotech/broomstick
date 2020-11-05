@@ -52,7 +52,7 @@ const options: InitOptions = {
   callbacks: {
     signIn: async (user, account, profile) => {
       console.log('signIn', user, account, profile)
-      return Promise.resolve(true);
+      return Promise.resolve(false);
     },
     jwt: async (token, user, account, profile) => {
        // when user comes back after SignIn, we make sure to save the accessToken from
