@@ -1,5 +1,5 @@
 import React from 'react'
-import { signin, signout, useSession } from 'next-auth/client'
+import { signin, signout, useSession  } from 'next-auth/client'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -29,7 +29,13 @@ const MyAppBar = () => {
 
   const handleSignIn = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
-    signin()
+    signin("google-extended")
+  };
+
+  const handleSignOut = async (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
+    await fetch(`/api/auth/revoke-access`);
+    signout({ callbackUrl: "/"});
   };
 
   return (
@@ -42,7 +48,12 @@ const MyAppBar = () => {
           <Typography variant="h6" className={classes.title}>
             Broomstick
           </Typography>
-          <Button component={Link} style={{ textDecoration: 'none' }} color="inherit" href="/api/auth/signin/google-extended">Sign In</Button>
+          {!session &&
+            <Button color="inherit" onClick={handleSignIn}>Sign In</Button>
+          }
+          {session && <>
+            <Button color="inherit" onClick={handleSignOut}>Sign Out</Button>
+          </>}
         </Toolbar>
       </AppBar>
     </div>

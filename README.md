@@ -11,7 +11,6 @@ Google Drive duplicated files analyser and cleanup solution with open code
 - [Next.js](https://nextjs.org/) React Framework for best development experience
 - [NextAuth.js](https://next-auth.js.org/) Authentication for Next.js
 - [Netlify](https://www.netlify.com/) Continuous Delivery and Hosting platform
-- [Go](https://github.com/aws/aws-lambda-go) AWS Lambda functions
 
 ## Google OAuth 2.0 Scope
 
@@ -21,16 +20,13 @@ Google Drive duplicated files analyser and cleanup solution with open code
 
 - [Deploying Next.js to Netlify](https://docs.netlify.com/configure-builds/common-configurations/#next-js)
 - [2 Ways to Create Server-Rendered Routes Using Next.js and Netlify](https://www.netlify.com/blog/2020/06/10/2-ways-to-create-server-rendered-routes-using-next.js-and-netlify/)
-- [Build serverless functions with Go](https://docs.netlify.com/functions/build-with-go/#synchronous-function-format)
+
 
 ## Build
 
-First, run the client development server:
+First, run the development server:
 
 ```bash
-cd ui
-npm run dev
-# or
 yarn dev
 ```
 
