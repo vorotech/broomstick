@@ -1,17 +1,18 @@
 import NextAuth, { InitOptions } from 'next-auth'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { google } from 'googleapis'
 
-type TokenInfo = {
-  issued_to: string;
-  audience: string;
-  user_id: string;
-  scope: string;
-  expires_in: number;
-  email: string;
-  verified_email: boolean;
-  access_type: 'online' | 'offline';
-  error?: string;
-}
+// type TokenInfo = {
+//   issued_to: string;
+//   audience: string;
+//   user_id: string;
+//   scope: string;
+//   expires_in: number;
+//   email: string;
+//   verified_email: boolean;
+//   access_type: 'online' | 'offline';
+//   error?: string;
+// }
 
 const options: InitOptions = {
   providers: [
@@ -66,12 +67,13 @@ const options: InitOptions = {
 
   callbacks: {
     signIn: async (user, account, profile) => {
-      const response = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${account.accessToken}`);
-      const tokenInfo: TokenInfo = await response.json();
-      if (!tokenInfo || tokenInfo.error || tokenInfo.scope.indexOf('auth/drive') == -1) {
+      const auth = new google.auth.OAuth2();
+      try {
+        const tokenInfo = await auth.getTokenInfo(account.accessToken)
+        return Promise.resolve(tokenInfo.scopes.indexOf('https://www.googleapis.com/auth/drive') > -1);
+      } catch (error) {
         return Promise.resolve(false);
       }
-      return Promise.resolve(true);
     },
     redirect: async (url, baseUrl) => {
       return url.startsWith(baseUrl) && url.indexOf('/error') == -1

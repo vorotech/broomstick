@@ -35,7 +35,8 @@ const MyAppBar = () => {
   const handleSignOut = async (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
     await fetch(`/api/auth/revoke-access`);
-    signout({ callbackUrl: "/"});
+    // TODO: Delay 5 sec due to eventual revoking of the access token by Google
+    await signout({ callbackUrl: "/"});
   };
 
   return (
@@ -52,7 +53,7 @@ const MyAppBar = () => {
             <Button color="inherit" onClick={handleSignIn}>Sign In</Button>
           }
           {session && <>
-            <Button color="inherit" onClick={handleSignOut}>Sign Out</Button>
+            <Button color="inherit" onClick={handleSignOut}>Sign Out & Revoke Access</Button>
           </>}
         </Toolbar>
       </AppBar>

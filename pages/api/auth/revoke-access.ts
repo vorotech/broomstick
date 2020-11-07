@@ -1,3 +1,4 @@
+import { google } from 'googleapis'
 import { NextApiRequest, NextApiResponse } from 'next'
 import jwt from 'next-auth/jwt'
 
@@ -8,13 +9,8 @@ type JwtToken = {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const token = (await jwt.getToken({ req, secret, encryption: true })) as JwtToken
-  const response = await fetch(`https://oauth2.googleapis.com/revoke?token=${token.accessToken}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  });
-  const result = await response.json()
+  const jwtToken = (await jwt.getToken({ req, secret, encryption: true })) as JwtToken;
+  const auth = new google.auth.OAuth2();
+  const result = await auth.revokeToken(jwtToken.accessToken);
   res.json(result)
 }
