@@ -4,8 +4,7 @@ import { MicDrop } from './MicDrop';
 import Link from '../../Link';
 
 interface IErrorPageProps {
-  status: string;
-  statusMessage: string;
+  errorMessage: string;
   additionalInfo?: string;
 }
 
@@ -29,8 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const ErrorPage = ({
-  status,
-  statusMessage,
+  errorMessage,
   additionalInfo,
 }: IErrorPageProps) => {
   const classes = useStyles();
@@ -40,7 +38,7 @@ export const ErrorPage = ({
       <MicDrop />
       <Grid item xs={12} sm={8} md={5}>
         <Typography variant="body1" className={classes.subtitle}>
-          ERROR {status}: {statusMessage}
+          ERROR: {errorMessage}
         </Typography>
         <Typography variant="body1" className={classes.subtitle}>
           {additionalInfo}

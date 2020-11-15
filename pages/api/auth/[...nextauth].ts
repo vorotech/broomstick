@@ -62,7 +62,7 @@ const options: InitOptions = {
   },
 
   pages: {
-    error: '/auth/error' // Error code passed in query string as ?error=
+    error: '/error' // Error code passed in query string as ?error=
   },
 
   callbacks: {
