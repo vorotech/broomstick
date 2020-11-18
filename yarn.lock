@@ -5156,10 +5156,10 @@ next-images@^1.6.2:
     file-loader "^6.0.0"
     url-loader "^4.0.0"
 
-next-on-netlify@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/next-on-netlify/-/next-on-netlify-2.6.1.tgz#eb10e1aed37f60269de1b4bff5334b0c2098786d"
-  integrity sha512-EtJFFpC0WnbVoUWrzX7QBYezjY7oDyHvi/RP+wmlQDYkJy33JQmkuqG5/aGApVWJNXmzvm+kaZKVqG7xCp8jyA==
+next-on-netlify@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/next-on-netlify/-/next-on-netlify-2.6.2.tgz#feeec6eb75eef3227c07c1953d3b6155fe7d532e"
+  integrity sha512-eN0KbkhKhOl8+3q+CrcyEZWEXwTu26zUijJG7dKHzrbHkkkDfY39N1n30PKpWDYUBGcu+6voJHYGBHSCmv70dg==
   dependencies:
     "@sls-next/lambda-at-edge" "^1.5.2"
     commander "^6.0.0"
