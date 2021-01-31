@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import Link from './Link'
+import FindDuplicates from './FindDuplicates'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,6 +40,8 @@ const MyAppBar = () => {
     await signout({ callbackUrl: "/"});
   };
 
+
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -57,7 +60,7 @@ const MyAppBar = () => {
           </>}
         </Toolbar>
       </AppBar>
-    </div>
+      </div>
   );
 }
 
