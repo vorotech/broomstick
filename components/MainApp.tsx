@@ -11,7 +11,7 @@ function MainApp() {
     setFiles(files)
     console.log(files);   
   }
-  
+  // rty
   return (
     <div>
       <Button color="inherit" onClick={findDupl}>Find Duplicates</Button>

@@ -4,14 +4,24 @@ import { DataGrid, ColDef } from '@material-ui/data-grid';
 function FindDuplicates({ files }) {
   const columns: ColDef[] = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Name', width: 200 },
+    { field: 'name', headerName: 'Name', width: 400 },
+    { field: 'size', headerName: 'Size', width: 200 },
+    { field: 'modifiedTime', headerName: 'Modified', width: 210 },
+
   ]
 
+  const allFiles = files.reduce((acc, file) => [...acc, ...file], []).map(file => {
+    file.size = +file.size
+    return file
+  })
+
+
   //todo: remove index key
+
   return (
     <div>
-      <div style={{ height: 400, width: '80vw' }}>
-        <DataGrid rows={files} columns={columns} pageSize={5} checkboxSelection />
+      <div style={{ minHeight: 400, width: '80vw' }}>
+        <DataGrid rows={allFiles} columns={columns}  checkboxSelection />
       </div>
 
       <ol>{files.map((file, index) => 
